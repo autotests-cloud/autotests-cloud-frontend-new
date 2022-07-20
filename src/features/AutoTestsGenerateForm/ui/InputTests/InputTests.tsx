@@ -1,7 +1,6 @@
 import React from 'react'
 import { Typography } from 'antd'
 import Ui from '../../../../shared/ui/Input'
-const { Text } = Typography
 import Content from '../../config/ContentFormAutoTests'
 import { IFormInputProps } from '../../../../shared/ui/Input/Input.types'
 import styles from './InputTests.module.scss'
@@ -15,9 +14,9 @@ const InputTests: React.FC<IFormInputProps> = ({ control }) => {
 					name='title_check'
 					content={Content.TestsTitleContent.options}
 				/>
-				<Text className={styles.subtitle}>
+				<Typography className={styles.subtitle}>
 					- Open url '' <br /> - Title should be 'All posts in a row / Habr'
-				</Text>
+				</Typography>
 			</div>
 			<div className={styles.border}>
 				<Ui.Checkbox
@@ -25,9 +24,9 @@ const InputTests: React.FC<IFormInputProps> = ({ control }) => {
 					name='console_check'
 					content={Content.TestsErrorsContent.options}
 				/>
-				<Text className={styles.subtitle}>
+				<Typography className={styles.subtitle}>
 					- Open url '' <br /> - Console logs should not contain text 'SEVERE'
-				</Text>
+				</Typography>
 			</div>
 		</div>
 	)
