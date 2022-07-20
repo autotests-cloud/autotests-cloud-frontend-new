@@ -1,0 +1,42 @@
+.box {
+	display: flex;
+	align-items: center;
+	border-top: 3px solid var(--gx-color-text-black);
+	border-bottom: 3px solid var(--gx-color-text-black);
+	padding-top: 7px;
+	padding-bottom: 7px;
+	margin-top: 15px;
+}
+
+.title {
+	color: var(--gx-color-text-white) !important;
+	padding: 0 10px;
+}
+
+.wrapper {
+	padding: 10px;
+	color: white;
+	max-height: 120px;
+	overflow-y: scroll;
+	&_modal {
+		color: black;
+	}
+}
+
+.wrapp {
+	position: relative;
+}
+
+.icon {
+	color: white !important;
+	font-size: 18px;
+	cursor: pointer;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	z-index: 2;
+	&:hover {
+		font-size: 20px;
+		transition: all 0.5s;
+	}
+}

@@ -1,0 +1,35 @@
+.iframe {
+	width: 100%;
+	margin-top: 0px !important;
+	height: 650px;
+	margin-top: 200px;
+	border: none;
+	animation-name: fadeInUp;
+	animation-duration: 1.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+.box {
+	border-top: 3px solid var(--gx-color-text-black);
+	border-bottom: 3px solid var(--gx-color-text-black);
+	padding-top: 7px;
+	padding-bottom: 7px;
+	margin-top: 15px;
+}
+
+.title {
+	color: white !important;
+	padding: 0 10px;
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(150px);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+}

@@ -1,0 +1,29 @@
+.navbar {
+	z-index: 99990;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	background-color: var(--gx-color-content-right);
+}
+
+.logo {
+	width: 200px;
+	float: left;
+	&_img {
+		background-color: var(--gx-color-text-autotest-orange);
+		padding: 5px;
+		border-radius: 10px;
+	}
+}
+
+.logo a {
+	display: inline-block;
+	font-size: 20px;
+	text-transform: capitalize;
+}
+
+.menuButton {
+	padding: 0 5px !important;
+	margin: 3px;
+	font-size: 18px !important;
+}
