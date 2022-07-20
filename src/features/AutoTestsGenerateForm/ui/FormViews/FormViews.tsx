@@ -36,7 +36,7 @@ const AutoTestsFormViews: React.FC<IAutoFormViewsProps> = ({ control }) => {
 				</div>
 
 				<div className={styles.border}>
-					<InputTests control={control} name={''} />
+					<InputTests control={control} name='' />
 					<br />
 					<InputManualTests
 						label='Add manual tests to automate:'

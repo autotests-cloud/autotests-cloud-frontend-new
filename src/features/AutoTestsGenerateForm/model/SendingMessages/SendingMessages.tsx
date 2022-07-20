@@ -4,6 +4,7 @@ import { useStompClient } from 'react-stomp-hooks'
 import { ISendingMessages } from './SendingMessages.types'
 import dataSerialize from '../../lib/dataSerialize'
 import { uuid } from '../../../../utils/StringUtils'
+import styles from './SendingMessages.module.scss'
 
 export const SendingMessages: React.FC<ISendingMessages> = ({ data }) => {
 	const stompClient = useStompClient()
@@ -14,21 +15,17 @@ export const SendingMessages: React.FC<ISendingMessages> = ({ data }) => {
 		setVisible(!visible)
 
 		if (stompClient && data) {
-			console.log(dataSerialize(data))
-
 			stompClient.publish({
 				destination: `/app/generate/${uuid}`,
 				body: dataSerialize(data),
 			})
-		} else {
-			//Handle error
 		}
 	}, [data])
 
 	return (
 		<>
 			{visible ? (
-				<Button style={{ width: '130px', maxWidth: '100%' }} htmlType='submit'>
+				<Button className={styles.button} htmlType='submit'>
 					Generate
 				</Button>
 			) : null}

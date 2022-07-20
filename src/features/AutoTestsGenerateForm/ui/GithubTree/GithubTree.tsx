@@ -141,7 +141,7 @@ const GithubTree: React.FC = () => {
 					/>
 				</div>
 				<div className={styles.code}>
-					<FadeIn>{renderCodeComponents('325px')}</FadeIn>
+					<FadeIn>{renderCodeComponents('335px')}</FadeIn>
 					<Modal
 						width={1100}
 						title='Code'

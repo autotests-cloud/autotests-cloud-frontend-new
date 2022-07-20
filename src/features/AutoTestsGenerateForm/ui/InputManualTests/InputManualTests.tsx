@@ -7,7 +7,7 @@ import InputSingleManualTest from './InputSingleManualTest'
 const { Text } = Typography
 
 const InputManualTests: React.FC<IFormInputProps> = ({ control, label }) => {
-	const [array, setArray] = useState<any>([])
+	const [array, setArray] = useState<any[]>([])
 
 	const handleCreateManualTest = () => {
 		setArray([...array, { ...array, id: Math.random() }])
@@ -20,9 +20,12 @@ const InputManualTests: React.FC<IFormInputProps> = ({ control, label }) => {
 				<InputSingleManualTest control={control} name='1' />
 				<InputSingleManualTest control={control} name='2' />
 				<InputSingleManualTest control={control} name='3' />
-				{array.map((arr: any) => (
-					<InputSingleManualTest key={arr.id} control={control} name={''} />
-				))}
+				{array &&
+					array.map(arr => (
+						<>
+							<InputSingleManualTest key={arr.id} control={control} name={''} />
+						</>
+					))}
 				<PlusCircleOutlined
 					onClick={handleCreateManualTest}
 					className={styles.icon}

@@ -1,6 +1,5 @@
 import { Serializer } from 'jsonapi-serializer'
 import { IFormAutoTestsInput } from '../model/FormMain/FormMain.types'
-import { uuid } from '../../../utils/StringUtils'
 
 const dataSerialize = (data: IFormAutoTestsInput) => {
 	const {
