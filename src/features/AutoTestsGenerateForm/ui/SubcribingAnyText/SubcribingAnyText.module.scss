@@ -1,8 +1,9 @@
-.box {
-	padding-bottom: 70px;
-}
-
 .text {
 	color: var(--gx-color-text-white) !important;
-	padding-left: 10px;
+	border-top: 3px solid var(--gx-color-text-black);
+	border-bottom: 3px solid var(--gx-color-text-black);
+	// padding-left: 10px;
+	padding: 7px 10px;
+	display: block;
+	margin-bottom: 40px;
 }

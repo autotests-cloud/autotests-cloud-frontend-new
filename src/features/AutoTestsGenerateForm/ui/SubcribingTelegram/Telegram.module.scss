@@ -4,10 +4,6 @@
 	height: 650px;
 	margin-top: 200px;
 	border: none;
-	animation-name: fadeInUp;
-	animation-duration: 1.5s;
-	animation-timing-function: linear;
-	animation-iteration-count: 1;
 }
 
 .box {
@@ -21,15 +17,4 @@
 .title {
 	color: white !important;
 	padding: 0 10px;
-}
-
-@keyframes fadeInUp {
-	0% {
-		opacity: 0;
-		-webkit-transform: translateY(150px);
-	}
-	100% {
-		opacity: 1;
-		-webkit-transform: translateY(0);
-	}
 }
