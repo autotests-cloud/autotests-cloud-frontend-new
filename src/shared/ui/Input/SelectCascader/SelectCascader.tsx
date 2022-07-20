@@ -8,54 +8,35 @@ interface Option {
 	children?: Option[]
 }
 
-const options: Option[] = [
-	{
-		value: 'zhejiang',
-		label: 'Zhejiang',
-		children: [
-			{
-				value: 'hangzhou',
-				label: 'Hangzhou',
-				children: [
-					{
-						value: 'xihu',
-						label: 'West Lake',
-					},
-				],
-			},
-		],
-	},
-	{
-		value: 'jiangsu',
-		label: 'Jiangsu',
-		children: [
-			{
-				value: 'nanjing',
-				label: 'Nanjing',
-				children: [
-					{
-						value: 'zhonghuamen',
-						label: 'Zhong Hua Men',
-					},
-				],
-			},
-		],
-	},
-]
-
 const InputSelectCascader: React.FC<IFormInputProps> = ({
 	name,
 	setValue,
 	control,
+	content,
 	label,
 }) => {
-	const [option, setOption] = useState<any>()
+	const [option, setOption] = useState<unknown>()
+
+	function convertLocationSchema(content: { state: string, cities: string[] }[]): Option[] {
+		return content.map(option => {
+			return {
+				value: option.state.toLowerCase(),
+				label: option.state,
+				children: option.cities.map(city => {
+					return {
+						value: city.toLowerCase(),
+						label: city
+					}
+				})
+			}
+		});
+	}
 
 	useEffect(() => {
 		if (option) setValue(name, option)
 	}, [option])
 
-	const handleChange = (value: any) => {
+	const handleChange = (value: unknown) => {
 		setOption(value)
 	}
 
@@ -67,8 +48,7 @@ const InputSelectCascader: React.FC<IFormInputProps> = ({
 				name={name}
 				render={() => (
 					<Cascader
-						defaultValue={['zhejiang', 'hangzhou', 'xihu']}
-						options={options}
+						options={convertLocationSchema(content)}
 						onChange={handleChange}
 					/>
 				)}
