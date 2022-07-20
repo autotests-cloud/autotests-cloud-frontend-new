@@ -22,9 +22,7 @@ export const JenkinsLog: React.FC<IFormSubscribing> = content => {
 	}
 	return (
 		<>
-			<div className={styles.box}>
-				<Text className={styles.title}>JenkinsLog</Text>
-			</div>
+			<Text className={styles.title}>JenkinsLog</Text>
 			<div className={styles.wrapp}>
 				<div className={styles.wrapper}>
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas
