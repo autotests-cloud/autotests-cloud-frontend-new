@@ -59,6 +59,7 @@ const FormViews: React.FC<IFormViewsProps> = ({ control, setValue }) => {
 				placeholder='Select'
 				label='Select State and City'
 				setValue={setValue}
+				content={Content.StateCityContent.options}
 			/>
 			<Ui.Slider name='slider' control={control} label='Slider' />
 			<Ui.TextArea name='address' control={control} label='Address' />
