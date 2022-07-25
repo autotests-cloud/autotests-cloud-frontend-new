@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Layout, Button, Drawer } from 'antd'
+import { Button, Drawer } from 'antd'
 import RightMenu from './RightMenu'
 import { MenuOutlined } from '@ant-design/icons'
 import { useLocation } from 'react-router-dom'
 import LeftMenu from './LeftMenu'
 
 import styles from './Navbar.module.scss'
-import { logo } from '../../assets'
 
 const Navbar = () => {
 	const [visible, setVisible] = useState(false)
