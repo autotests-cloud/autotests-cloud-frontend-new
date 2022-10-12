@@ -1,14 +1,10 @@
-import { Outlet } from 'react-router-dom'
 import styles from './Layout.module.scss'
-import Navbar from '../../../widgets/Navbar/Navbar'
+import { ILayout } from './Layout.types'
 
-const Layout = () => {
+const Layout: React.FC<ILayout> = ({ children }) => {
 	return (
 		<>
-			<Navbar />
-			<main className={styles.layout}>
-				<Outlet />
-			</main>
+			<main className={styles.layout}>{children}</main>
 		</>
 	)
 }

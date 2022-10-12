@@ -2,30 +2,50 @@ import { IFormInputProps } from '../../../../shared/ui/Input/Input.types'
 import { PlusCircleOutlined } from '@ant-design/icons'
 import styles from './InputManualTests.module.scss'
 import { Typography } from 'antd'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import InputSingleManualTest from './InputSingleManualTest'
+import { CountManualTestContext } from '../../../../context/CountManualTestProvider'
+import { defaultValues } from '../../config/defaultValues'
 const { Text } = Typography
 
 const InputManualTests: React.FC<IFormInputProps> = ({ control, label }) => {
 	const [array, setArray] = useState<any[]>([])
 
+	const [countManualTest, setCountManualTest] = useContext(
+		CountManualTestContext
+	)
+
 	const handleCreateManualTest = () => {
-		setArray([...array, { ...array, id: Math.random() }])
+		if (array.length < 9) {
+			setArray([...array, { id: Math.random() }])
+			setCountManualTest(4 + array.length)
+		}
 	}
+
+	const addManualTestInDefaultValues = (
+		argDefaultValues: any,
+		argCountContext: any
+	) => {
+		argDefaultValues[`title_${argCountContext}`] = ''
+		argDefaultValues[`steps_${argCountContext}`] = ''
+	}
+
+	addManualTestInDefaultValues(defaultValues, countManualTest)
 
 	return (
 		<>
 			<Text>{label}</Text>
 			<div className={styles.wrapper}>
-				<InputSingleManualTest control={control} name='1' />
-				<InputSingleManualTest control={control} name='2' />
-				<InputSingleManualTest control={control} name='3' />
-				{array &&
-					array.map(arr => (
-						<>
-							<InputSingleManualTest key={arr.id} control={control} name={''} />
-						</>
-					))}
+				<InputSingleManualTest control={control} name='1' key='1' />
+				<InputSingleManualTest control={control} name='2' key='2' />
+				<InputSingleManualTest control={control} name='3' key='3' />
+				{array.map((arr, index) => (
+					<InputSingleManualTest
+						key={arr.id}
+						control={control}
+						name={index + 4}
+					/>
+				))}
 				<PlusCircleOutlined
 					onClick={handleCreateManualTest}
 					className={styles.icon}

@@ -34,6 +34,23 @@
 }
 .vizualization {
 	margin-top: 165px;
+	&_active {
+		&__4,
+		&__5,
+		&__6 {
+			margin-top: 335px;
+		}
+		&__7,
+		&__8,
+		&__9 {
+			margin-top: 505px;
+		}
+		&__10,
+		&__11,
+		&__12 {
+			margin-top: 675px;
+		}
+	}
 }
 .attachments {
 	margin-top: 7px;

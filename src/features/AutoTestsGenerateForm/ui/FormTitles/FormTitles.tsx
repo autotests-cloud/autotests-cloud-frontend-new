@@ -1,9 +1,15 @@
 import { Typography } from 'antd'
+import { useContext } from 'react'
 const { Text } = Typography
-
+import { CountManualTestContext } from '../../../../context/CountManualTestProvider'
+import cn from 'classnames'
 import styles from './FormTitles.module.scss'
 
 const AutoTestsRight: React.FC = () => {
+	const [countManualTest, setCountManualTest] = useContext(
+		CountManualTestContext
+	)
+
 	return (
 		<div className={styles.wrapper}>
 			<Text className={`${styles.title} ${styles.url}`}>URL</Text>
@@ -18,7 +24,11 @@ const AutoTestsRight: React.FC = () => {
 			<Text className={`${styles.subtitle} ${styles.manual}`}>
 				Manual Tests
 			</Text>
-			<Text className={`${styles.title} ${styles.vizualization}`}>
+			<Text
+				className={cn(`${styles.title} ${styles.vizualization}`, {
+					[styles[`vizualization_active__${countManualTest}`]]: countManualTest,
+				})}
+			>
 				VISUALIZATION
 			</Text>
 			<Text className={`${styles.subtitle} ${styles.report}`}>

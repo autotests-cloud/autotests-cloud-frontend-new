@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import CodeTree from '../../../../shared/ui/CodeTree/CodeTree'
 import type { DirectoryTreeProps } from 'antd/lib/tree'
 import ContentTree from '../../config/ContentGithubTree'
@@ -103,6 +103,34 @@ const GithubTree: React.FC = () => {
 					<CodeEditor
 						maxHeight={maxHeight}
 						code={CodeContent.TestBaseContent}
+					/>
+				)
+			case 'app.properties':
+				return (
+					<CodeEditor
+						maxHeight={maxHeight}
+						code={CodeContent.AppPropertiesContent}
+					/>
+				)
+			case 'local.properties':
+				return (
+					<CodeEditor
+						maxHeight={maxHeight}
+						code={CodeContent.LocalPropertiesContent}
+					/>
+				)
+			case 'request.ftl':
+				return (
+					<CodeEditor
+						maxHeight={maxHeight}
+						code={CodeContent.RequestFtlContent}
+					/>
+				)
+			case 'response.ftl':
+				return (
+					<CodeEditor
+						maxHeight={maxHeight}
+						code={CodeContent.ResponseFtlContent}
 					/>
 				)
 			default:

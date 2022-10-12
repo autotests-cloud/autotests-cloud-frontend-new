@@ -1,7 +1,7 @@
 import { Serializer } from 'jsonapi-serializer'
 import { IFormAutoTestsInput } from '../model/FormMain/FormMain.types'
 
-const dataSerialize = (data: IFormAutoTestsInput) => {
+const dataSerialize = (data: IFormAutoTestsInput, countManualTest: any) => {
 	const {
 		url,
 		stack,
@@ -23,6 +23,30 @@ const dataSerialize = (data: IFormAutoTestsInput) => {
 		test_management,
 	} = data
 
+	const addManualTestInDataSerialize = (dataProp: any) => {
+		const arr = [
+			{
+				title: title_1,
+				steps: steps_1,
+			},
+			{
+				title: title_2,
+				steps: steps_2,
+			},
+			{
+				title: title_3,
+				steps: steps_3,
+			},
+		]
+
+		for (let i = 4; i <= countManualTest; i++) {
+			const { [`title_${i}`]: Title, [`steps_${i}`]: Steps } = dataProp
+			arr.push({ title: Title ?? '', steps: Steps ?? '' })
+		}
+
+		return arr
+	}
+
 	const json = new Serializer('data', {
 		url: url,
 		stack: stack,
@@ -40,20 +64,7 @@ const dataSerialize = (data: IFormAutoTestsInput) => {
 						(title_check && title_check[0]) || (title_check === null && false),
 				},
 			],
-			manual: [
-				{
-					title: title_1,
-					steps: steps_1,
-				},
-				{
-					title: title_2,
-					steps: steps_2,
-				},
-				{
-					title: title_3,
-					steps: steps_3,
-				},
-			],
+			manual: addManualTestInDataSerialize(data),
 		},
 		visualization: {
 			allure_report:

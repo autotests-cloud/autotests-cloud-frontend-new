@@ -12,8 +12,16 @@ import ProjectContent from './ProjectContent'
 import SelenideSnippetsContent from './SelenideSnippetsContent'
 import TestBaseContent from './TestBaseContent'
 import DriverUtilsContent from './DriverUtilsContent'
+import AppPropertiesContent from './AppPropertiesContent'
+import LocalPropertiesContent from './LocalPropertiesContent'
+import RequestFtlContent from './RequestFtlContent'
+import ResponseFtlContent from './ResponseFtlContent'
 
 export default {
+	ResponseFtlContent,
+	RequestFtlContent,
+	LocalPropertiesContent,
+	AppPropertiesContent,
 	AllureAttachmentsContent,
 	AllureRestAssuredFilterContent,
 	AppConfigContent,
